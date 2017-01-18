@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   <h1> Weclome To the Tap Room! </h1>
     <h3>Currently on Tap:</h3>
     <ul>
-      <li *ngFor="let currentKeg of kegs">{{currentKeg.name}}, by {{currentKeg.brewer}}, \${{currentKeg.price}} per pint, {{currentKeg.abv}}% ABV. {{currentKeg.pints}} pints remaining<button (click)="editKeg(currentKeg)">Edit Keg</button></li>
+      <li *ngFor="let currentKeg of kegs">{{currentKeg.name}}, by {{currentKeg.brewer}}, \${{currentKeg.price}} per pint, {{currentKeg.abv}}% ABV. {{currentKeg.pints}} pints remaining<button (click)="editKeg(currentKeg)">Edit Keg</button><button (click)="sellPint(currentKeg)">Sell pint!</button></li>
     </ul>
     <div  *ngIf="selectedKeg">
     <h3>Edit {{selectedKeg.name}} by {{selectedKeg.brewer}}</h3>
@@ -41,7 +41,12 @@ export class AppComponent {
   finishedEditing() {
     this.selectedKeg=null;
   }
+
+  sellPint(clickedKeg){
+  clickedKeg.pints = clickedKeg.pints - 1;
+  }
  }
+
 
 export class Keg {
   public pints: number = 124;
