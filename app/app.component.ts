@@ -28,6 +28,19 @@ import { Component } from '@angular/core';
       <input [(ngModel)]="selectedKeg.pints">
       <button (click)="finishedEditing()">Done</button>
     </div>
+    <button (click)="newKegForm()">Add New Keg</button>
+    <div  *ngIf="newKeg">
+      <h3>New Keg</h3>
+      <label>Beer name:</label>
+      <input #newName>
+      <label>Brewer:</label>
+      <input #newBrewer>
+      <label>Price:</label>
+      <input #newPrice>
+      <label>ABV:</label>
+      <input #newAbv>
+      <button (click)="addKeg(newName.value, newBrewer.value, newPrice.value, newAbv.value)">Add Keg</button>
+    </div>
   </div>
 `
 })
@@ -40,6 +53,7 @@ export class AppComponent {
     new Keg("Triple Imperial Barrel-aged Barley Wine", "Crazy Joe", 13, 19.7)
   ]
   selectedKeg = null;
+  newKeg = null;
 
   kegChange(currentKeg) {
     if (currentKeg.pints <= 10) {
@@ -66,6 +80,16 @@ export class AppComponent {
 
   sellPint(clickedKeg){
   clickedKeg.pints = clickedKeg.pints - 1;
+  }
+
+  newKegForm() {
+    this.newKeg = "go";
+  }
+
+  addKeg(name: string, brewer: string, price: number, abv: number) {
+    var newKegToAdd: Keg = new Keg(name, brewer, price, abv);
+    this.kegs.push(newKegToAdd);
+    this.newKeg = null;
   }
  }
 
