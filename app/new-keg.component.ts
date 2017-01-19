@@ -6,16 +6,19 @@ import {Keg} from './keg.model';
   template: `
   <button class="btn" (click)="newKegForm()">Add New Keg</button>
   <div  *ngIf="newKeg">
-    <h3>New Keg</h3>
-    <label>Beer name:</label>
-    <input #newName>
-    <label>Brewer:</label>
-    <input #newBrewer>
-    <label>Price:</label>
-    <input #newPrice>
-    <label>ABV:</label>
-    <input #newAbv>
-    <button (click)="addKeg(newName.value, newBrewer.value, newPrice.value, newAbv.value)">Add Keg</button>
+    <div class="inputForm">
+      <h3>New Keg</h3>
+      <label>Beer name:</label>
+      <input #newName>
+      <label>Brewer:</label>
+      <input #newBrewer>
+      <label>Price:</label>
+      <input #newPrice>
+      <label>ABV:</label>
+      <input #newAbv>
+      <button class="btn" (click)="addKeg(newName.value, newBrewer.value, newPrice.value, newAbv.value)">Add Keg</button>
+      <button class="btn" (click)="cancel()">Cancel</button>
+    </div>
   </div>
   `
 })
@@ -35,5 +38,8 @@ export class NewKegComponent {
     this.newKeg = null;
   }
 
+  cancel() {
+    this.newKeg = null;
+  }
 
 }

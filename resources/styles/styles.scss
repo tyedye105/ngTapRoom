@@ -1,5 +1,13 @@
 h1 {
   text-align: center;
+  background-color: beige;
+  border-radius: 25px;
+}
+
+h3 {
+  background-color: #e0945d;
+  border-radius: 25px;
+  text-align: center;
 }
 .empContainer{
   display: flex;
@@ -9,19 +17,23 @@ h1 {
 .empKeg {
   height: 350px;
   width: 200px;
-  margin: 0 3;
+  border-radius: 25px;
+  margin: 0 5;
 }
 .empKegChange {
-  background-color: pink;
-  height: 300px;
+  height: 350px;
   width: 200px;
-  display: flex;
-  flex-direction: column;
+  border-radius: 25px;
+  margin: 0 5;
+  background-color: #b51e1e;
 }
 .keg {
   height: 170px;
   width: 200px;
-  margin: 0 3;
+  background-color:rgba(245, 245, 220, 0.35);
+  border-radius: 25px;
+  padding: 10px;
+  margin: 0 5;
 }
 .kegButtons {
 }
@@ -33,4 +45,16 @@ body {
 
 .btn {
   margin: 2;
+  background-color: rgba(204, 148, 23, 0.86);
+}
+
+.abvWarning {
+  font-weight: bold;
+  color: red;
+}
+
+.inputForm {
+  background-color: rgba(245, 245, 220, 0.55);
+  border-radius: 5px;
+  padding: 0px 3px 3px 3px;
 }

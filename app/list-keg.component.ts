@@ -32,7 +32,7 @@ export class ListKegComponent {
 
   abvWarning(currentKeg) {
     if (currentKeg.abv >= 7) {
-      return "bg-danger";
+      return "abvWarning";
     } else {
       return "" ;
     }
