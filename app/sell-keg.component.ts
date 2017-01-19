@@ -4,9 +4,11 @@ import {Keg} from './keg.model';
 @Component({
   selector: 'sell-keg',
   template: `
-  <button (click)="sellBooze(1)">Sell pint!</button>
-  <button (click)="sellBooze(2)">Sell Growler!</button>
-  <button (click)="sellBooze(4)">Sell Large Growler!</button>
+  <div>
+    <button (click)="sellBooze(1)">Sell pint!</button>
+    <button (click)="sellBooze(2)">Sell Growler!</button>
+    <button (click)="sellBooze(4)">Sell Large Growler!</button>
+  </div>
   `
 })
 

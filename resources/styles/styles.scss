@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+}
+.empContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.empKeg {
+  height: 250px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+
+}
+.empKegChange {
+  background-color: pink;
+  height: 300px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.keg {
+  height: 170px;
+  width: 200px;
+}
+.kegButtons {
+}
