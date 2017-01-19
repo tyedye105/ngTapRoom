@@ -13,7 +13,7 @@ import {Keg} from './keg.model';
         <p>{{currentKeg.pints}} pints remaining</p>
       </div>
       <div class="kegButtons">
-        <button (click)="editKeg(currentKeg)">Edit Keg</button>
+        <button class="btn" (click)="editKeg(currentKeg)">Edit Keg</button>
         <sell-keg  [childCurrentKeg]="currentKeg" (saleSender)="sellPint($event)"></sell-keg>
       </div>
     </div>

@@ -16,7 +16,7 @@ import {Keg} from './keg.model';
     <input [(ngModel)]="childSelectedKeg.abv">
     <label>Pints Left:</label>
     <input [(ngModel)]="childSelectedKeg.pints">
-    <button (click)="finishedEditing()">Done</button>
+    <button class="btn" (click)="finishedEditing()">Done</button>
   </div>
   `
 })

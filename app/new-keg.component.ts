@@ -4,7 +4,7 @@ import {Keg} from './keg.model';
 @Component( {
   selector: 'new-keg',
   template: `
-  <button (click)="newKegForm()">Add New Keg</button>
+  <button class="btn" (click)="newKegForm()">Add New Keg</button>
   <div  *ngIf="newKeg">
     <h3>New Keg</h3>
     <label>Beer name:</label>

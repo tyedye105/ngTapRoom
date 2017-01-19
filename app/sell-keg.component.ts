@@ -5,9 +5,9 @@ import {Keg} from './keg.model';
   selector: 'sell-keg',
   template: `
   <div>
-    <button (click)="sellBooze(1)">Sell pint!</button>
-    <button (click)="sellBooze(2)">Sell Growler!</button>
-    <button (click)="sellBooze(4)">Sell Large Growler!</button>
+    <button class="btn form-control" (click)="sellBooze(1)">Pint!</button>
+    <button class="btn form-control" (click)="sellBooze(2)"> Growler!</button>
+    <button class="btn form-control" (click)="sellBooze(4)">Large Growler!</button>
   </div>
   `
 })

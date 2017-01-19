@@ -7,11 +7,9 @@ h1 {
   flex-wrap: wrap;
 }
 .empKeg {
-  height: 250px;
+  height: 350px;
   width: 200px;
-  display: flex;
-  flex-direction: column;
-
+  margin: 0 3;
 }
 .empKegChange {
   background-color: pink;
@@ -23,6 +21,16 @@ h1 {
 .keg {
   height: 170px;
   width: 200px;
+  margin: 0 3;
 }
 .kegButtons {
+}
+
+body {
+  background: url("../../resources/images/beer.jpg") fixed;
+  background-size: cover;
+}
+
+.btn {
+  margin: 2;
 }
