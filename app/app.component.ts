@@ -44,6 +44,6 @@ export class AppComponent {
   }
 
   sellKeg(soldKeg) {
-    soldKeg.pints = soldKeg.pints - 1;
+    soldKeg[1].pints = soldKeg[1].pints - soldKeg[0];
   }
  }
