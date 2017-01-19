@@ -5,13 +5,15 @@ import { FormsModule }  from '@angular/forms';
 import { ListKegComponent} from './list-keg.component';
 import {EditKegComponent} from './edit-keg.component';
 import{NewKegComponent} from './new-keg.component';
+import {PriceFilterPipe} from './priceFilter.pipe';
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
   declarations: [ AppComponent,
                   ListKegComponent,
                   EditKegComponent,
-                  NewKegComponent],
+                  NewKegComponent,
+                  PriceFilterPipe],
   bootstrap:    [ AppComponent ]
 })
 
