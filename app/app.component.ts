@@ -7,8 +7,9 @@ import {Keg} from './keg.model';
   <div class="container">
   <h1> Weclome To the Tap Room! </h1>
     <h3>Currently on Tap:</h3>
-    <list-keg [childKegList]="masterKegList" (clickSender)="editKeg($event)" (saleSender)="sellKeg($event)"></list-keg>
+    <list-keg [childKegList]="masterKegList"></list-keg>
     <hr>
+    <employee-portal [empChildKegList]="masterKegList" (clickSender)="editKeg($event)" (saleSender)="sellKeg($event)"></employee-portal>
     <edit-keg [childSelectedKeg]="selectedKeg" (finishedEditingSender)="finishedEditing()"></edit-keg>
     <new-keg (newKegSender)='addKeg($event)'></new-keg>
   </div>

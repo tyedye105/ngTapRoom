@@ -3,7 +3,7 @@ import {Keg} from './keg.model';
 
 @Pipe({
   name: "priceFilter",
-  pure: true
+  pure: false
 })
 
 export class PriceFilterPipe implements PipeTransform {
