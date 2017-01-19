@@ -8,6 +8,7 @@ import{NewKegComponent} from './new-keg.component';
 import {PriceFilterPipe} from './priceFilter.pipe';
 import {SellKegComponent} from './sell-keg.component';
 import {EmployeePortalComponent} from './employee-portal.component';
+import {HappyHourPipe} from './happyHour.pipe';
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
@@ -17,7 +18,8 @@ import {EmployeePortalComponent} from './employee-portal.component';
                   NewKegComponent,
                   PriceFilterPipe,
                   SellKegComponent,
-                  EmployeePortalComponent],
+                  EmployeePortalComponent,
+                  HappyHourPipe],
   bootstrap:    [ AppComponent ]
 })
 

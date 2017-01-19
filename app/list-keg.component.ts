@@ -12,7 +12,7 @@ import {Keg} from './keg.model';
     <option value=99 selected>No Limit</option>
   </select>
   <div class="empContainer">
-    <div class="keg" *ngFor="let currentKeg of childKegList | priceFilter: priceLimit"><h4>{{currentKeg.name}}, by {{currentKeg.brewer}}</h4>
+    <div class="keg" *ngFor="let currentKeg of childKegList | happyHour | priceFilter : priceLimit"><h4>{{currentKeg.name}}, by {{currentKeg.brewer}}</h4>
     <h5>\${{currentKeg.price}} per pint</h5>
     <h5><span [class]="abvWarning(currentKeg)">
     {{currentKeg.abv}}% ABV.</span></h5>
