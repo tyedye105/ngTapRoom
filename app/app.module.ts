@@ -6,6 +6,7 @@ import { ListKegComponent} from './list-keg.component';
 import {EditKegComponent} from './edit-keg.component';
 import{NewKegComponent} from './new-keg.component';
 import {PriceFilterPipe} from './priceFilter.pipe';
+import {SellKegComponent} from './sell-keg.component';
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
@@ -13,7 +14,8 @@ import {PriceFilterPipe} from './priceFilter.pipe';
                   ListKegComponent,
                   EditKegComponent,
                   NewKegComponent,
-                  PriceFilterPipe],
+                  PriceFilterPipe,
+                  SellKegComponent],
   bootstrap:    [ AppComponent ]
 })
 

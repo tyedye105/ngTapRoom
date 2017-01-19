@@ -14,7 +14,7 @@ import {Keg} from './keg.model';
   </select>
   <ul>
     <li [class]="kegChange(currentKeg)" *ngFor="let currentKeg of childKegList | priceFilter: priceLimit">{{currentKeg.name}}, by {{currentKeg.brewer}}, \${{currentKeg.price}} per pint, <span [class]="abvWarning(currentKeg)">
-    {{currentKeg.abv}}% ABV.</span> {{currentKeg.pints}} pints remaining <button *ngIf ="employeePortal" (click)="editKeg(currentKeg)">Edit Keg</button> <button *ngIf ="employeePortal" (click)="sellPint(currentKeg)">Sell pint!</button></li>
+    {{currentKeg.abv}}% ABV.</span> {{currentKeg.pints}} pints remaining <button *ngIf ="employeePortal" (click)="editKeg(currentKeg)">Edit Keg</button> <sell-keg [childCurrentKeg]="currentKeg" (saleSender)="sellPint($event)"></sell-keg></li>
   </ul>
   <button (click)="toggleEmployeeView()">Toggle View</button>
   `
@@ -25,6 +25,7 @@ import {Keg} from './keg.model';
 export class ListKegComponent {
   @Input() childKegList: Keg[];
   @Output() clickSender = new EventEmitter();
+  @Output() saleSender = new EventEmitter();
   employeePortal: boolean = false;
   priceLimit: number = 99;
 
@@ -40,10 +41,10 @@ export class ListKegComponent {
       return "" ;
     }
   }
-  sellPint(clickedKeg){
-  clickedKeg.pints = clickedKeg.pints - 1;
-  }
 
+  sellPint(soldKeg) {
+    this.saleSender.emit(soldKeg);
+  }
 
   toggleEmployeeView() {
     if(this.employeePortal === false) {
