@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Keg} from './keg.model';
 
 @Component({
   selector: 'app-root',
@@ -6,28 +7,9 @@ import { Component } from '@angular/core';
   <div class="container">
   <h1> Weclome To the Tap Room! </h1>
     <h3>Currently on Tap:</h3>
-    <ul>
-      <li *ngFor="let currentKeg of kegs">{{currentKeg.name}}, by {{currentKeg.brewer}}, \${{currentKeg.price}} per pint, <span [class]="abvWarning(currentKeg)">{{currentKeg.abv}}% ABV</span>. {{currentKeg.pints}} pints remaining</li>
-    </ul>
+    <list-keg [childKegList]="masterKegList" (clickSender)="editKeg($event)"></list-keg>
     <hr>
-    <h3>Employee Portal:</h3>
-    <ul>
-      <li [class]="kegChange(currentKeg)" *ngFor="let currentKeg of kegs">{{currentKeg.name}}, by {{currentKeg.brewer}}, \${{currentKeg.price}} per pint, {{currentKeg.abv}}% ABV. {{currentKeg.pints}} pints remaining <button (click)="editKeg(currentKeg)">Edit Keg</button> <button (click)="sellPint(currentKeg)">Sell pint!</button></li>
-    </ul>
-    <div  *ngIf="selectedKeg">
-      <h3>Edit {{selectedKeg.name}} by {{selectedKeg.brewer}}</h3>
-      <label>Beer name:</label>
-      <input [(ngModel)]="selectedKeg.name">
-      <label>Brewer:</label>
-      <input [(ngModel)]="selectedKeg.brewer">
-      <label>Price:</label>
-      <input [(ngModel)]="selectedKeg.price">
-      <label>ABV:</label>
-      <input [(ngModel)]="selectedKeg.abv">
-      <label>Pints Left:</label>
-      <input [(ngModel)]="selectedKeg.pints">
-      <button (click)="finishedEditing()">Done</button>
-    </div>
+    <edit-keg [childSelectedKeg]="selectedKeg" (finishedEditingSender)="finishedEditing()"></edit-keg>
     <button (click)="newKegForm()">Add New Keg</button>
     <div  *ngIf="newKeg">
       <h3>New Keg</h3>
@@ -46,7 +28,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  kegs: Keg[] = [
+  masterKegList: Keg[] = [
     new Keg("IPA", "Happy Brews", 5.00, 5.4),
     new Keg("Stout", "Unhappy Brews", 5.00, 6.4),
     new Keg("Blueberry Cider", "Blue's Brews", 6.00, 4.2),
@@ -55,25 +37,11 @@ export class AppComponent {
   selectedKeg = null;
   newKeg = null;
 
-  kegChange(currentKeg) {
-    if (currentKeg.pints <= 10) {
-      return "bg-danger";
-    } else {
-      return "" ;
-    }
-  }
 
-  abvWarning(currentKeg) {
-    if (currentKeg.abv >= 7) {
-      return "bg-danger";
-    } else {
-      return "" ;
+    editKeg(clickedKeg) {
+      this.selectedKeg=clickedKeg;
     }
-  }
 
-  editKeg(clickedKeg) {
-    this.selectedKeg=clickedKeg;
-  }
   finishedEditing() {
     this.selectedKeg=null;
   }
@@ -88,13 +56,7 @@ export class AppComponent {
 
   addKeg(name: string, brewer: string, price: number, abv: number) {
     var newKegToAdd: Keg = new Keg(name, brewer, price, abv);
-    this.kegs.push(newKegToAdd);
+    this.masterKegList.push(newKegToAdd);
     this.newKeg = null;
   }
  }
-
-
-export class Keg {
-  public pints: number = 124;
-  constructor(public name: string,public brewer: string,public price: number,public abv: number) { }
-}
