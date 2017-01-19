@@ -34,10 +34,6 @@ export class AppComponent {
     this.selectedKeg=null;
   }
 
-  sellPint(clickedKeg){
-  clickedKeg.pints = clickedKeg.pints - 1;
-  }
-
   newKegForm() {
     this.newKeg = "go";
   }

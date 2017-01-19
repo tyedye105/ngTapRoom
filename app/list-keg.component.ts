@@ -40,6 +40,9 @@ export class ListKegComponent {
       return "" ;
     }
   }
+  sellPint(clickedKeg){
+  clickedKeg.pints = clickedKeg.pints - 1;
+  }
 
 
   toggleEmployeeView() {
