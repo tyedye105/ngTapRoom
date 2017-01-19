@@ -6,7 +6,8 @@ import {Keg} from './keg.model';
   template: `
   <h3 *ngIf ="employeePortal">Employee Portal:</h3>
   <ul>
-    <li [class]="kegChange(currentKeg)" *ngFor="let currentKeg of childKegList">{{currentKeg.name}}, by {{currentKeg.brewer}}, \${{currentKeg.price}} per pint, {{currentKeg.abv}}% ABV. {{currentKeg.pints}} pints remaining <button *ngIf ="employeePortal" (click)="editKeg(currentKeg)">Edit Keg</button> <button *ngIf ="employeePortal" (click)="sellPint(currentKeg)">Sell pint!</button></li>
+    <li [class]="kegChange(currentKeg)" *ngFor="let currentKeg of childKegList">{{currentKeg.name}}, by {{currentKeg.brewer}}, \${{currentKeg.price}} per pint, <span [class]="abvWarning(currentKeg)">
+    {{currentKeg.abv}}% ABV.</span> {{currentKeg.pints}} pints remaining <button *ngIf ="employeePortal" (click)="editKeg(currentKeg)">Edit Keg</button> <button *ngIf ="employeePortal" (click)="sellPint(currentKeg)">Sell pint!</button></li>
   </ul>
   <button (click)="toggleEmployeeView()">Toggle View</button>
   `

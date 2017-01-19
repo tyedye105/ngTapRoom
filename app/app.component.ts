@@ -10,19 +10,7 @@ import {Keg} from './keg.model';
     <list-keg [childKegList]="masterKegList" (clickSender)="editKeg($event)"></list-keg>
     <hr>
     <edit-keg [childSelectedKeg]="selectedKeg" (finishedEditingSender)="finishedEditing()"></edit-keg>
-    <button (click)="newKegForm()">Add New Keg</button>
-    <div  *ngIf="newKeg">
-      <h3>New Keg</h3>
-      <label>Beer name:</label>
-      <input #newName>
-      <label>Brewer:</label>
-      <input #newBrewer>
-      <label>Price:</label>
-      <input #newPrice>
-      <label>ABV:</label>
-      <input #newAbv>
-      <button (click)="addKeg(newName.value, newBrewer.value, newPrice.value, newAbv.value)">Add Keg</button>
-    </div>
+    <new-keg (newKegSender)='addKeg($event)'></new-keg>
   </div>
 `
 })
@@ -54,9 +42,7 @@ export class AppComponent {
     this.newKeg = "go";
   }
 
-  addKeg(name: string, brewer: string, price: number, abv: number) {
-    var newKegToAdd: Keg = new Keg(name, brewer, price, abv);
-    this.masterKegList.push(newKegToAdd);
-    this.newKeg = null;
+  addKeg(newKegFromChild: Keg) {
+    this.masterKegList.push(newKegFromChild)
   }
  }
